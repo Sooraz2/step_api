@@ -41,6 +41,26 @@ def get_yearly_data():
 @app.route('/get-monthly-data/')
 def get_monthly_data():
 	return 'This is monthly data'  
+    
+    
+@pytest.fixture
+def client(app):
+    return app.test_client()
+
+def test_get_hourly_data(client):
+    response = client.get('/get-hourly-data/')
+    assert response.status_code == 200
+    # Add additional assertions for response data if needed
+
+def test_get_yearly_data(client):
+    response = client.get('/get-yearly-data/')
+    assert response.status_code == 200
+    # Add additional assertions for response data if needed
+
+def test_get_monthly_data(client):
+    response = client.get('/get-monthly-data/')
+    assert response.status_code == 200
+    # Add additional assertions for response data if needed
 
 
 
