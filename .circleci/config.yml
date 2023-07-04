@@ -16,7 +16,9 @@ jobs:
       - checkout
       - run:
           name: "Running Test"
-          command: pytest
+          command: 
+            pip install -r requirements.txt
+            pytest
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
